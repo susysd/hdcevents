@@ -40,6 +40,7 @@
        @endfor
 
        @foreach ($nomes as $nome)
+       {{-- esse loop é uma propriedade usada no próprio blade --}}
        <p>{{$loop->index}}</p>
        <p> {{ $nome }}</p>
        @endforeach
