@@ -110,6 +110,24 @@ header{
     color: #757575;
 }
 
+/*Event create page*/
+#event-create-container{
+    padding: 30px;
+}
+
+#event-create-container label{
+    font-weight: bold;
+    padding: 8px;
+}
+
+#event-create-container input,
+#event-create-container select,
+#event-create-container textarea{
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+
 /*footer*/
 
 footer{
