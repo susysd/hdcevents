@@ -140,10 +140,13 @@ header{
 #image-container,
 #info-container{
     margin-top: 30px;
+    margin-bottom: 20px;
 }
 
 #image-container img{
+    height: 100%;
     border-radius: 10px;
+    
 }
 
 #info-container h1{
@@ -171,6 +174,14 @@ header{
 
 #info-container #event-submit{
     margin: 20px 0;
+}
+
+#items-list{
+    list-style: none;
+    padding-left: 0;
+}
+#items-list li{
+   display: flex;
 }
 
 

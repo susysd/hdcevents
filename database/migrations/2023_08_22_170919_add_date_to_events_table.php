@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('event', function (Blueprint $table) {
-            $table->json('items');
+        Schema::table('events', function (Blueprint $table) {
+            $table->dateTime('date');
         });
     }
 
@@ -21,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('event', function (Blueprint $table) {
-            $table->dropColumn('items');
+        Schema::table('events', function (Blueprint $table) {
+            $table->dropColumn('date');
         });
     }
 };
