@@ -30,6 +30,9 @@
                     <li class="nav-item">
                         <a href="/events/create" class="nav-link">Criar Eventos</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="/events/usuario" class="nav-link">Formulário</a>
+                    </li>
                     @auth
                     <li class="nav-item">
                         <a href="/dashboard" class="nav-link">Meus Eventos</a>
@@ -37,7 +40,7 @@
 
                     <li class="nav-item">
                         <form action="/logout" method="POST">
-                            @csrf\
+                            @csrf
                             <a href="/logout"
                             class="nav-link"
                             onClick="event.preventDefault();
