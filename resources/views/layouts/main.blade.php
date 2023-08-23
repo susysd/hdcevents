@@ -37,7 +37,7 @@
 
                     <li class="nav-item">
                         <form action="/logout" method="POST">
-                            @csrf\
+                            @csrf
                             <a href="/logout"
                             class="nav-link"
                             onClick="event.preventDefault();

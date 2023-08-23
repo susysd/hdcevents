@@ -1,11 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Event;
+
 use Illuminate\Http\Request;
+
+use App\Models\Event;
+use App\Models\User;
 
 class EventController extends Controller
 {
+    
     public function index() {
 
         $search = request('search');
@@ -21,14 +25,14 @@ class EventController extends Controller
         }        
     
         return view('welcome',['events' => $events, 'search' => $search]);
-    
+
     }
 
-    public function create(){
+    public function create() {
         return view('events.create');
     }
 
-    public function store(Request $request){
+    public function store(Request $request) {
 
         $event = new Event;
 
@@ -38,9 +42,8 @@ class EventController extends Controller
         $event->private = $request->private;
         $event->description = $request->description;
         $event->items = $request->items;
-      
-        //Image Upload
 
+        // Image Upload
         if($request->hasFile('image') && $request->file('image')->isValid()) {
 
             $requestImage = $request->image;
@@ -55,14 +58,23 @@ class EventController extends Controller
 
         }
 
+        $user = auth()->user();
+        $event->user_id = $user->id;
+
         $event->save();
 
         return redirect('/')->with('msg', 'Evento criado com sucesso!');
+
     }
-   public function show($id){
 
-          $events = Event::findOrFail($id);
+    public function show($id) {
 
-          return view('events.show', ['event' => $events]);
-   }
+        $event = Event::findOrFail($id);
+
+        $eventOwner = User::where('id', $event->user_id)->first()->toArray();
+
+        return view('events.show', ['event' => $event, 'eventOwner' => $eventOwner]);
+        
+    }
+
 }
