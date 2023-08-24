@@ -198,6 +198,11 @@ margin-top: 30px;
     width: 25%;
 }
 
+.dashboard-events-container form{
+    display: inline-block;
+}
+.btn-info edit-btn
+
 /*footer*/
 
 footer{
