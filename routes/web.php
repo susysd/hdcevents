@@ -28,11 +28,7 @@ Route::get('/contact', function () {
 });
 Route::get('/dashboard', [eventController::class, 'dashboard'])->middleware('auth');
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/', [EventController::class, 'index']);
-});
+Route::post('/events/join/{id}', [eventController::class, 'joinEvent'])->middleware('auth');
+
+
 
